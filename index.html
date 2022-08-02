@@ -10,12 +10,10 @@
 	$link = mysql_connect("localhost","root",""); //conexion al servidor, usuario y contraseña
 	mysql_select_db("mibasededatos",$link); //seleccionar la base de datos
 	$result = mysql_query("select * from agenda", $link); //ejecutar una consulta de datos de una tabla
-	echo "Nombre: ",mysql_result($result,0,"nombre"),"<br>"; //muestra el primer valor del registro 0
-	echo "Apellidos: ",mysql_result($result,0,"apellidos"),"<br>";
-	echo "Direccion: ",mysql_result($result,0,"direccion"),"<br>";
-	echo "Telefono: ",mysql_result($result,0,"telefono"),"<br>";
-	echo "Edad: ",mysql_result($result,0,"edad"),"<br>";
-	echo "Altura: ",mysql_result($result,0,"altura"),"<br>";
+	echo "Nombre: ",mysql_result($result,0,"NOMBRE"),"<br>"; //muestra el primer valor del registro 0
+	echo "edad: ",mysql_result($result,0,"edad"),"<br>";
+	echo "escuela: ",mysql_result($result,0,"escuela"),"<br>";
+	echo "estatura: ",mysql_result($result,0,"estatura"),"<br>";
 	?>
 </body>
 </html>
