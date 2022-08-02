@@ -1,22 +1,21 @@
-<HTML>
-  <HEAD></HEAD>
-  <TITLE></TITLE>
-  <BODY BGCOLOR="#E6FBF4">
-    <?php
-    $link= mysql_conect("localhost", "root","");
-    mysql_select_db("pruebas",$link);
-    $result = mysql_querry("select *from registros", $link);
-    while($row =mysql_fetch_array($result))
-    {
-    	echo "<hr>";
-        echo "NOMBRE: ".row['NOMBRE']."<br>"
-    	echo "EDAD: ".row['edad']."<br>"
-      	echo "ESCUELA: ".row['escuela']."<br>"
-    	echo "ESTATURA: ".row['estatura']."<br>"
-    }
-    mysql_free_result($result);
-    mysql_close($link);
-    echo"<hr>";
-    ?>
-  </BODY>
-</HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DID XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>EJEMPLO FUNCIONES CONNECT, CLOSE, SELECT_DB, QUERY, RESULI</titLe>
+</head>
+
+<body>
+<?php
+	$link = mysql_connect("localhost","root",""); //conexion al servidor, usuario y contraseña
+	mysql_select_db("mibasededatos",$link); //seleccionar la base de datos
+	$result = mysql_query("select * from agenda", $link); //ejecutar una consulta de datos de una tabla
+	echo "Nombre: ",mysql_result($result,0,"nombre"),"<br>"; //muestra el primer valor del registro 0
+	echo "Apellidos: ",mysql_result($result,0,"apellidos"),"<br>";
+	echo "Direccion: ",mysql_result($result,0,"direccion"),"<br>";
+	echo "Telefono: ",mysql_result($result,0,"telefono"),"<br>";
+	echo "Edad: ",mysql_result($result,0,"edad"),"<br>";
+	echo "Altura: ",mysql_result($result,0,"altura"),"<br>";
+	?>
+</body>
+</html>
