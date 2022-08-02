@@ -11,9 +11,6 @@
 	mysql_select_db("pruebas",$link);
 	$result = mysql_query("select * from personas", $link); 
 	echo "Nombre: ",mysql_result($result,0,"NOMBRE"),"<br>"; 
-	echo "edad: ",mysql_result($result,0,"edad"),"<br>";
-	echo "escuela: ",mysql_result($result,0,"escuela"),"<br>";
-	echo "estatura: ",mysql_result($result,0,"estatura"),"<br>";
 	?>
 </body>
 </html>
