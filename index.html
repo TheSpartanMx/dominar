@@ -9,7 +9,7 @@
 <?php
 	$link = mysql_connect("localhost","root",""); //conexion al servidor, usuario y contraseña
 	mysql_select_db("mibasededatos",$link); //seleccionar la base de datos
-	$result = mysql_query("select * from agenda", $link); //ejecutar una consulta de datos de una tabla
+	$result = mysql_query("select * from personas", $link); //ejecutar una consulta de datos de una tabla
 	echo "Nombre: ",mysql_result($result,0,"NOMBRE"),"<br>"; //muestra el primer valor del registro 0
 	echo "edad: ",mysql_result($result,0,"edad"),"<br>";
 	echo "escuela: ",mysql_result($result,0,"escuela"),"<br>";
