@@ -2,51 +2,21 @@
   <HEAD></HEAD>
   <TITLE></TITLE>
   <BODY BGCOLOR="#E6FBF4">
-    <FORM>
-      <P>
-        INGRESA TU NOMBRE COMPLETO: <INPUT TYPE= "TEXT"><BR>
-        <INPUT TYPE= "SUBMIT" VALUE= "ENVIAR">
-      </P>
-        <P>
-        COMENTARIOS O ACLARACIONES: <BR>
-          <TEXTAREA NAME= "MENSAJE"> </TEXTAREA><BR>
-        <INPUT TYPE= "SUBMIT" VALUE= "ENVIAR">
-      </P>
-       <P>
-        SELECIONA TU JUEGO FAVORITO: <BR>
-        <INPUT TYPE= "CHECKBOX"> HALO <BR>
-          <INPUT TYPE= "CHECKBOX"> PVZ <BR>
-            <INPUT TYPE= "CHECKBOX"> FORNITE <BR><BR>
-        <INPUT TYPE= "SUBMIT" VALUE= "ENVIAR">
-      </P>
-      <P>
-        ESTADO CIVIL: <BR>
-        <INPUT TYPE= "CHECKBOX"> CASADO<BR>
-          <INPUT TYPE= "CHECKBOX">SOLTERO <BR>
-            <INPUT TYPE= "CHECKBOX"> VIUDO <BR>
-              <INPUT TYPE= "CHECKBOX"> UNION LIBRE <BR><BR>
-        <INPUT TYPE= "SUBMIT" VALUE= "ENVIAR">
-      </P>
-      <P>
-       CARRERA: <BR>
-        <SELECT>
-          <OPTION> SISTEMAS </OPTION>
-          <OPTION> DERECHO </OPTION>
-          <OPTION> DISEÑO </OPTION>
-          <OPTION> EDUCACIÓN</OPTION>
-        </SELECT>
-        <BR><BR><INPUT TYPE= "SUBMIT" VALUE= "ENVIAR">
-      </P>
-       <P>
-        CARROS: <BR>
-        <SELECT MULTIPLE>
-          <OPTION> CAMARO </OPTION>
-          <OPTION> MUSTANG</OPTION>
-          <OPTION> SUPRA </OPTION>
-          <OPTION> GTR</OPTION>
-        </SELECT>
-        <BR><BR><INPUT TYPE= "SUBMIT" VALUE= "ENVIAR">
-      </P>
-    </FORM>
+    <?php
+    $link= mysql_conect("localhost", "root","");
+    mysql_select_db("pruebas",$link);
+    $result = mysql_querry("select *from registros", $link);
+    while($row =mysql_fetch_array($result))
+    {
+    	echo "<hr>";
+        echo "NOMBRE: ".row['NOMBRE']."<br>"
+    	echo "EDAD: ".row['edad']."<br>"
+      	echo "ESCUELA: ".row['escuela']."<br>"
+    	echo "ESTATURA: ".row['estatura']."<br>"
+    }
+    mysql_free_result($result);
+    mysql_close($link);
+    echo"<hr>";
+    ?>
   </BODY>
 </HTML>
