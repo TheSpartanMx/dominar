@@ -1,16 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DID XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>EJEMPLO FUNCIONES CONNECT, CLOSE, SELECT_DB, QUERY, RESULI</title>
-</head>
-
-<body>
 <?php
-	$link = mysql_connect("localhost","root","");
-	mysql_select_db("pruebas",$link);
-	$result = mysql_query("select * from personas", $link); 
-	echo "Nombre: ",mysql_result($result,0,"NOMBRE"),"<br>"; 
-	?>
+	
+	$conexion=mysqli_connect('localhost','root','','pruebas');
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mostrar datos</title>
+</head>
+<body>
+
+<br>
+
+	<table>
+		<tr>
+			<td>id</td>
+			<td>nombre</td>
+			<td>edad</td>
+			<td>escuela</td>
+			<td>estatura</td>
+		</tr>
+		<?php
+		$sql="SELECT * from personas";
+		$result=mysqli_query($conexion,$sql);
+
+		while($mostrar=mysqli_fetch_array($result)){
+		?>
+		<tr>
+			<td><?php echo $mostrar['id'] ?></td>
+			<td><?php echo $mostrar['NOMBRE'] ?></td>
+			<td><?php echo $mostrar['edad'] ?></td>
+			<td><?php echo $mostrar['escuela'] ?></td>
+			<td><?php echo $mostrar['estatura'] ?></td>
+		</tr>
+	<?php  
+	}
+	 ?>
+	</table>
+
 </body>
-</html>
+</html>		
